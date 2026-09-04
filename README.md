@@ -2,6 +2,17 @@
 
 This is the WebSocket backend for Golden Eagle Proxy. It runs as a Docker web service.
 
+## SnapDeploy deployment
+
+1. Sign in to SnapDeploy and choose **Deploy from GitHub**.
+2. Select `3541Hazen/scramjet-wisp` and branch `main`.
+3. Choose **Dockerfile** deployment. SnapDeploy will use the root `Dockerfile`.
+4. Set the container port to `8080` and the health check path to `/health`.
+5. Deploy and copy the generated `https://...containers.snapdeploy.app` URL.
+6. Set `WISP_URL` in the frontend build environment to that URL with `https://` replaced by `wss://` and `/wisp/` appended.
+
+For example: `wss://your-service.containers.snapdeploy.app/wisp/`.
+
 ## Northflank deployment
 
 1. Create a **Combined Service** from this GitHub repository and select the `main` branch.
